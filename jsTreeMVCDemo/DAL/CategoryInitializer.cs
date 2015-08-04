@@ -13,25 +13,12 @@ namespace jsTreeMVCDemo.DAL
         {
             var category = new List<CategoriesModel>
             {
-            new CategoriesModel{ CategoryName = "Root", ParentId = 0, ID = 1,
-                Children = new List<CategoriesModel> {
-                    new CategoriesModel {
-                        CategoryName = "Children 1", ParentId = 1, ID = 2,
-                        Children = new List<CategoriesModel> { 
-                            new CategoriesModel { CategoryName = "Children 1.1", ParentId = 2, ID = 4  },
-                            new CategoriesModel { CategoryName = "Children 1.2", ParentId = 2, ID = 5  }
-                        } 
-                    },
-                    new CategoriesModel {
-                        CategoryName = "Children 2", ParentId = 1, ID = 3,
-                         Children = new List<CategoriesModel> { 
-                            new CategoriesModel { CategoryName = "Children 2.1", ParentId = 3, ID = 6  },
-                            new CategoriesModel { CategoryName = "Children 2.2", ParentId = 3, ID = 7  }
-                        } 
-                    }
-                }
-            },
-            
+              new CategoriesModel { CategoryName = "Root", ParentId = 0, ID = 1},
+              new CategoriesModel {CategoryName = "Children 1", ParentId = 1, ID = 2},
+              new CategoriesModel { CategoryName = "Children 1.1", ParentId = 2, ID = 4  },
+              new CategoriesModel { CategoryName = "Children 1.2", ParentId = 2, ID = 5  },
+              new CategoriesModel { CategoryName = "Children 2", ParentId = 1, ID = 3},
+              new CategoriesModel { CategoryName = "Children 2.1", ParentId = 3, ID = 6  }
             };
 
             category.ForEach(s => context.CategoriesModels.Add(s));
