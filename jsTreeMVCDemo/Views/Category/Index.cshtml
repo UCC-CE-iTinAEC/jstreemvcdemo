@@ -1,0 +1,37 @@
+﻿@model jsTreeMVCDemo.Models.CategoriesModel
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Category</h2>
+<script>
+    var j = jQuery.noConflict();
+    j(function () {
+
+         j("#jstree_demo_div").jstree({
+                    "checkbox": {
+                        "keep_selected_style": true
+                    },
+                    "plugins": ["checkbox"]
+                });
+        var to = false;
+        j('#plugins4_q').keyup(function () {
+            if (to) { clearTimeout(to); }
+            to = setTimeout(function () {
+                var v = j('#plugins4_q').val();
+                j('#jstree_demo_div').jstree(true).search(v);
+            }, 250);
+        });
+    });
+</script>
+<input type="text" style="margin:0em auto 1em auto; display:block;padding:4px; border-radius:4px; border:1px solid silver;" class="input" value="" id="plugins4_q">
+<div id="jstree_demo_div">
+    <ul id="tree">
+        <li>
+            <a href="#">@Model.CategoryName</a>
+            @Html.Partial("Children", Model)
+        </li>
+    </ul>
+</div>
+

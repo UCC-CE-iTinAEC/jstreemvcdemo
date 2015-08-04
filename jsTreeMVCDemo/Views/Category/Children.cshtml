@@ -1,0 +1,16 @@
+﻿@model jsTreeMVCDemo.Models.CategoriesModel
+@foreach (var item in Model.Children)
+{
+    <ul>
+        @if (item != null)
+        {
+            <li id="@item.ID">
+                <a href="#" class="cat">@item.CategoryName</a>
+                @if (item.Children.Count > 0)
+                {
+                    @Html.Partial("Children", item)
+                }
+            </li>
+        }
+    </ul>
+}
